@@ -1,0 +1,19 @@
+{
+  "name": "engineering-challenge-node",
+  "version": "1.0.0",
+  "description": "- This is a submission for the Lingumi Software Engineering Challenge using nodejs - The version of node used for this project is **9.11.1**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lingumi/engineering-challenge-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lingumi/engineering-challenge-node/issues"
+  },
+  "homepage": "https://github.com/Lingumi/engineering-challenge-node#readme"
+}
