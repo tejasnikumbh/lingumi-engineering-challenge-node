@@ -5,6 +5,16 @@
 
 ## Running the Code
 
+## Checklist
+As a final check list:
+
+- [x] Design the algorithm
+- [ ] Answer questions asked in challenge (Update README.md)
+- [ ] Write pseudo code on a piece of paper
+- [ ] Complete coding the solution
+- [ ] Add testing support (modules + scripts) and write tests
+- [ ] Document testing instructions (running test-scripts + adding test cases)
+- [ ] Send an email to george@lingumi.com with link to the repository
 
 ## Author
 - Tejas Nikumbh
