@@ -3,7 +3,7 @@
 - This is a submission for the Lingumi Software Engineering Challenge using nodejs
 - The version of node used for this project is **9.11.1**
 
-## Questions
+## Answers to Questions
 
 ### How does the Algorithm work from a high-level perspective?
 The code design has the following overview -
