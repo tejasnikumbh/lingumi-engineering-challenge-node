@@ -4,7 +4,7 @@
   "description": "- This is a submission for the Lingumi Software Engineering Challenge using nodejs - The version of node used for this project is **9.11.1**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./**/*.test.js"
   },
   "repository": {
     "type": "git",
