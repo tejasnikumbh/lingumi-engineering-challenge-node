@@ -23,17 +23,17 @@ const getWordIds = (words, idsLearnedInLesson) => {
 
 // Selects  3 words from valid words by sorting them according to score
 const _selectWords = (validWords, idsLearnedInLesson) => {
-  var scores = _computeScores(validWords, idsLearnedInLesson);
+  var scores = validWords.map((word) => _computeScores(word, idsLearnedInLesson));
 
   var wordsAndScores = _.zip(validWords, scores);
   var wordsSortedByScores = _.sortBy(wordsAndScores, (tuple) => {
     return tuple[1]; // tuple[1] is score
-  });
+  }).reverse(); //  reversing so it is in descending order of score
 
   var selectedTuples = wordsSortedByScores.slice(0,3);
-  var selectedWords = tuples.map((tuple) => tuple[0]);
+  var selectedWordIds = selectedTuples.map((tuple) => tuple[0].id);
 
-  return selectedWords;
+  return selectedWordIds;
 }
 
 // Computes priority score for a given word
@@ -55,3 +55,5 @@ const _computeScores = (word, idsLearnedInLesson) => {
 
   return score;
 }
+
+module.exports = { getWordIds }
