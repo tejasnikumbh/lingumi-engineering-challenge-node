@@ -2,7 +2,7 @@ const {getWordIds} = require('./../index');
 const {qualifyingWords, notQualifyingWords} = require('./seed/seed');
 const {expect, assert, should } = require('chai');
 
-describe('Core Test Cases - getWordIds [index.js]', () => {
+describe('Core test cases - getWordIds [index.js]', () => {
 
   // Testing the function with invalid inputs
   describe('Invalid Input', () => {

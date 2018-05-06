@@ -46,10 +46,12 @@ const _computeScores = (word, idsLearnedInLesson) => {
   // params[0] -> weight for hasAlreadyCollected
   // params[1] -> weight for numberOfTimesLearned
   // params[2] -> weight for if word was learned in this lesson
-  var params = [0.5, 0.35, 0.15];
+  var params = [0.4, 0.3, 0.3];
 
   var variables = [0,0,0];
+  // Assign 1 if has NOT been already collected, else 0
   variables[0] = word.hasAlreadyCollected ? 0 : 1;
+  // Normalization for the numberOfTimesLearned
   variables[1] = _.min([(word.numberOfTimesLearned / 20.0), 1]);
   // checks if word.id was is in idsLearnedInLesson array
   variables[2] = (idsLearnedInLesson.indexOf(word.id) > -1) ? 1 : 0;
