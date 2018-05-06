@@ -2,15 +2,18 @@ const {getWordIds} = require('./../index');
 const {qualifyingWords, notQualifyingWords} = require('./seed/seed');
 const {expect, assert, should } = require('chai');
 
-describe('getWordIds [index.js]', () => {
+describe('Core Test Cases - getWordIds [index.js]', () => {
 
+  // Testing the function with invalid inputs
   describe('Invalid Input', () => {
 
     it('should throw error if words passed are less than 3', () => {
       var error = null;
       var result = null;
       try {
-        getWordIds([],[]);
+        var wordList = [];
+        var idsLearnedInLesson = [];
+        result = getWordIds(wordList,idsLearnedInLesson);
       } catch (e) {
         error = e;
       }
@@ -23,7 +26,9 @@ describe('getWordIds [index.js]', () => {
       var error = null;
       var result = null;
       try {
-        getWordIds(notQualifyingWords,[]);
+        var wordList = notQualifyingWords;
+        var idsLearnedInLesson = [];
+        result = getWordIds(wordList,idsLearnedInLesson);
       } catch (e) {
         error = e;
       }
@@ -33,6 +38,7 @@ describe('getWordIds [index.js]', () => {
 
   });
 
+  // Testing the function with valid inputs
   describe('Valid Input', () => {
 
     it('should return 3 strings if numberOfTimesLearned is > 0'  +
@@ -40,7 +46,9 @@ describe('getWordIds [index.js]', () => {
       var error = null;
       var result = null;
       try {
-        result = getWordIds(qualifyingWords.slice(0, 6), ["1", "2", "3", "4"]);
+        var wordList = qualifyingWords.slice(0,6);
+        var idsLearnedInLesson = ["1", "2", "3", "4"];
+        result = getWordIds(wordList, idsLearnedInLesson);
         // Advanced testing - For valid input pass atleast 3 qualifying words
         // result = getWordIds(qualifyingWords.slice(0,3)
         //            .concat(notQualifyingWords.slice(0,2)),
@@ -54,8 +62,11 @@ describe('getWordIds [index.js]', () => {
       expect(typeof result[0]).to.be.equal('string');
       expect(typeof result[1]).to.be.equal('string');
       expect(typeof result[2]).to.be.equal('string');
+      var resultSet = new Set(result);
+      // All elements unique
+      expect(resultSet.size).to.be.equal(result.length);
     });
 
-  })
+  });
 
 });

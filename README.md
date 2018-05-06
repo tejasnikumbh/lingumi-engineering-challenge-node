@@ -3,6 +3,73 @@
 - This is a submission for the Lingumi Software Engineering Challenge using nodejs
 - The version of node used for this project is **9.11.1**
 
+## Testing Instructions
+Following are the instructions for running the test suite, and adding test cases
+
+### Running tests
+- After cloning the repository, use the following to install all dependencies
+  ``` javascript
+  npm install
+  ```
+
+- Then use the following for running the test suite
+``` javascript
+npm test
+```
+
+### Adding test cases
+Go to [index.test.js](tests/index.test.js) to see all the test cases. You will find testing blocks for
+valid and invalid input tests. The current format the testing blocks follow is
+outlined below
+``` javascript
+it('<decribe what test should do>', () => {
+  var error = null;
+  var result = null;
+  try {
+    var wordList = [];
+    var idsLearnedInLesson = [];
+    // calling the core function and storing result
+    result = getWordIds(wordList, idsLearnedInLesson);
+  } catch (e) {
+    error = e;
+  }
+  // Expected error state - can be null or not null
+  expect(error).to.not.be.null;
+  // Expected result state - can be null or not null
+  expect(result).to.be.null;
+});
+```
+
+I have created a seperate file for Lingumi to add test cases for this project. You can simply uncomment the commented code and modify it to modify or create a test case.
+
+Concretely, you will only have to change the wordList and idsLearnedInLesson parameters.
+
+The wordList can be populated via seed data (using qualifyingWords and notQualifyingWords) or custom built. idsLearnedInLesson is a simple string array. <br/>
+
+You can check out the seed data used in [seed data](/tests/seed/seed.js)
+
+To use seed data simply slice or use the qualifyingWords array or notQualifyingWords array or a combination of both (concat, slice etc.) as the wordList.
+
+To custom build a wordList, follow the following syntax -
+``` javascript
+var wordList = [
+  new Word({
+    id: <Some String>,
+    hasAlreadyCollected: <true or false>
+    numberOfTimesLearned: <sensible number value > 0>
+  }),
+  new Word(<same as above>)
+];
+```
+I have used mongoose to build model for Word, which can be found in the [Word](/models/word.js) model.
+
+Example of an idsLearnedInLesson array -
+``` javascript
+var idsLearnedInLesson = [ "1", "2", "3" and so on];
+```
+
+Run **npm test** when done and saved.
+
 ## Answers to Questions
 
 ### How does the Algorithm work from a high-level perspective?
@@ -31,8 +98,8 @@ As a final check list:
 - [x] Design the algorithm
 - [x] Write pseudo code on a piece of paper
 - [x] Answer questions asked in challenge
-- [ ] Complete coding the solution
-- [ ] Add testing support (modules + scripts) and write tests
+- [x] Complete coding the solution
+- [x] Add testing support (modules + scripts) and write tests
 - [ ] Document testing instructions (running test-scripts + adding test cases)
 - [ ] Send an email to george@lingumi.com with link to the repository
 

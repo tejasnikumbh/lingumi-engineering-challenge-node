@@ -20,6 +20,26 @@ var notQualifyingWordData = [
     id: "4",
     hasAlreadyCollected: false,
     numberOfTimesLearned: 0
+  },
+  {
+    id: "4",
+    hasAlreadyCollected: false,
+    numberOfTimesLearned: 0
+  },
+  {
+    id: "4",
+    hasAlreadyCollected: false,
+    numberOfTimesLearned: 0
+  },
+  {
+    id: "4",
+    hasAlreadyCollected: false,
+    numberOfTimesLearned: 0
+  },
+  {
+    id: "4",
+    hasAlreadyCollected: false,
+    numberOfTimesLearned: 0
   }
 ];
 
