@@ -40,7 +40,7 @@ describe('getWordIds [index.js]', () => {
       var error = null;
       var result = null;
       try {
-        result = getWordIds(qualifyingWords.slice(0, 3), ['1', '2', '3', '4', '5']);
+        result = getWordIds(qualifyingWords.slice(0, 6), ["1", "2", "3", "4"]);
         // Advanced testing - For valid input pass atleast 3 qualifying words
         // result = getWordIds(qualifyingWords.slice(0,3)
         //            .concat(notQualifyingWords.slice(0,2)),

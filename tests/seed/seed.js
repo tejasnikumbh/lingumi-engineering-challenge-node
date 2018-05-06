@@ -40,7 +40,7 @@ var qualifyingWordData = [
     numberOfTimesLearned: 2
   },
   {
-    id: "7",
+    id: "23",
     hasAlreadyCollected: true,
     numberOfTimesLearned: 27
   },

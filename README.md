@@ -18,7 +18,7 @@ The code design has the following overview -
   - 0.5 for hasAlreadyCollected
     - This variable has the highest parameter value since it's intuitive to think that the child would want to accumulate word stickers for a variety of words, and not just one word.
   - 0.35 for numberOfTimesLearned
-    - This value is the second most highest one. It is important to keep the parameter value high since having this value high keeps the reward more valuable. Hypothetically, if this was 1 instead of 0.35, the child would be awarded only for words that he has learned most, thereby getting rewards for words that have been learned lesser number of times more difficult
+    - This value is the second most highest one. It is important to keep the parameter value high since having this value high keeps the reward more valuable. Hypothetically, if this was 1 instead of 0.35, the child would be awarded only for words that he has learned most, thereby getting rewards for words that have been learned lesser number of times more difficult.
   - 0.15 for learnedInThisLesson
     - This value is the lowest since I believe if the child has only recently learned a word, she should not be provided a reward just yet since there needs to be more learning in order to learn the word better. However, keeping in mind child psychology, relevance is important and getting reward for a word just learned also adds to excitement. Hence the value.
 

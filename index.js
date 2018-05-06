@@ -32,11 +32,15 @@ const _selectWords = (validWords, idsLearnedInLesson) => {
 
   var selectedTuples = wordsSortedByScores.slice(0,3);
   var selectedWordIds = selectedTuples.map((tuple) => tuple[0].id);
-
+  // console.log(selectedTuples);
+  // console.log(selectedWordIds);
   return selectedWordIds;
 }
 
-// Computes priority score for a given word
+// Computes priority score for a given word. The score is always [0,1]
+// Note:- Normalization factor for numberOfTimesLearned is kept 20, which
+// is assumed to be a reasonable estimate of number of times a word needs to
+// be learned for a child to achieve mastery of it.
 const _computeScores = (word, idsLearnedInLesson) => {
   // Params represent weights as follows
   // params[0] -> weight for hasAlreadyCollected
@@ -45,9 +49,10 @@ const _computeScores = (word, idsLearnedInLesson) => {
   var params = [0.5, 0.35, 0.15];
 
   var variables = [0,0,0];
-  variables[0] = word.hasAlreadyCollected ? 1 : 0;
-  variables[1] = max((word.numberOfTimesLearned / 20.0), 0.35);
-  variables[2] = word.id in idsLearnedInLesson ? 1 : 0;
+  variables[0] = word.hasAlreadyCollected ? 0 : 1;
+  variables[1] = _.min([(word.numberOfTimesLearned / 20.0), 1]);
+  // checks if word.id was is in idsLearnedInLesson array
+  variables[2] = (idsLearnedInLesson.indexOf(word.id) > -1) ? 1 : 0;
 
   var score = params[0] * variables[0] +
   params[1] * variables[1] +
