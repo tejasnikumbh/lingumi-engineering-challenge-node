@@ -46,7 +46,7 @@ const _computeScores = (word, idsLearnedInLesson) => {
 
   var variables = [0,0,0];
   variables[0] = word.hasAlreadyCollected ? 1 : 0;
-  variables[1] = word.numberOfTimesLearned;
+  variables[1] = max((word.numberOfTimesLearned / 20.0), 0.35);
   variables[2] = word.id in idsLearnedInLesson ? 1 : 0;
 
   var score = params[0] * variables[0] +
